@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style/style.css">
+        <title>Тинькофф Прокат</title>
+    </head>
+    <body class="search">
+        <header class="header">
+            <img class="label" src="img/label.svg" alt="Tinkoff label">
+        </header>
+        <main>
+            <div class="search-box" id="search-box">
+                <form class="search-line" >
+                    <div class="search-line__image">
+                        <img src="img/search.svg" alt="Magnifier image">
+                    </div>
+                    <input class="search-line__input" autocomplete="off" type="text" placeholder="Поиск фильмов по жанрам и актерам">
+                    <button class="clear-botton" type="button">
+                        <img class="clear-botton__image" src="img/esc.svg" alt="clear botton">
+                    </button>
+                </form>
+                <hr class="headline">
+            </div>
+            <div class="last-search"></div>
+            <div class="" id="result-block">
+                <div class="loader"></div>
+                <p class="error-message">Упс, что-то пошло не так...</p>
+                <p class="count-res">Нашли <span id="count">82</span> фильма</p>
+                <p class="text-not-found">Мы не поняли, о чем речь ¯\_(ツ)_/¯</p>
+                <div class="result-list"></div>
+            </div>
+        </main>
+        <footer class="footer">
+            <corp-info></corp-info>
+        </footer>
+        <script src="src/index.js" type="module"></script>
+    </body>
+</html>

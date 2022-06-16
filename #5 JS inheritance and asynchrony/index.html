@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script type="module" src="index.js"></script>
+  <style type="text/css">
+    table{
+      width: 1000px;
+    }
+    td, th {
+     padding: 3px;
+     border: 1px solid black;
+     align-content: center;
+    }
+   </style>
+</head>
+<body>
+  <form>
+    <label for="inputUrls">Args</label>
+    <input type="text" size='100px' id="inputUrls" />
+    <br>
+    <label for="inputMax">Max requests</label>
+    <input type="text" size='10px' id="inputMax" />
+    <br>
+
+    <button type="button" onclick="makeRequests()">Start requests</button>
+    <div id="statuses">
+      <table id="tableStates" hidden="true">
+        <thead>
+          <tr>
+            <th scope="col">Url</th><th scope="col">Status</th><th scope="col">Duplicate</th><th scope="col">Answer</th>
+          </tr>
+        </thead>
+        <tbody id="statusesList">
+        </tbody>
+      </table>
+    </div>
+    <div id="results">
+    </div>
+  </form>
+</body>
+</html>
