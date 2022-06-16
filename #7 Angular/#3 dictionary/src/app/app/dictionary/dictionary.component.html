@@ -1,0 +1,23 @@
+<header>
+  <button
+  tuiButton
+  type="button"
+  size="s"
+  appearance="accent" (click)="toggleAdd()">Добавить</button>
+</header>
+<main>
+  <app-dictionary-add *ngIf="isAdd"
+                      (addAction)="addCard($event)"
+                      (cancelAction)="toggleAdd()">
+  </app-dictionary-add>
+  <div class="card-list">
+    <app-dictionary-card *ngFor="let p of cards; let index=index"
+                          [card]="p"
+                          [isOpen]="index === turnedID"
+                          [index] = "index"
+                          (turnAction)="changeOpen($event)"
+                          (deleteAction)="deleteCard($event)"
+                          [animationEnd]="animationEnd">
+    </app-dictionary-card>
+  </div>
+</main>

@@ -1,0 +1,36 @@
+:host{
+  z-index: 100;
+}
+
+.add-form{
+  position: absolute;
+  z-index: 3;
+  top: 30vh;
+  right: 30%;
+  height: 200px;
+  width: 500px;
+  text-align: right;
+}
+
+.term {
+  min-height: 4rem;
+  min-width: 7rem;
+}
+
+:host:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,.5);
+  z-index: 2;
+}
+button, tui-text-area + tui-text-area{
+  margin-top: 0.5rem;
+}
+
+button + button {
+  margin-left: 0.5rem;
+}

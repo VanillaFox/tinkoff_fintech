@@ -1,0 +1,97 @@
+<div class="summary">
+  Summary: {{currencyService.summary}}
+  <select id="currencies" (change)="currenceChanges()">
+    <option selected>{{this.lastForm ? this.lastForm.currency : "USD"}}</option>
+    <optgroup *ngFor="let p of countryService.data" [label]="p.name">
+      <option *ngFor="let q of p.currencies">{{ q.code }}</option>
+    </optgroup>
+  </select>
+</div>
+
+<div class="card-list">
+  <app-card *ngFor="let p of basketService.myPurchases"
+            [isBasket]="true"
+            [purchase]="p"
+            [count]="p.count"
+            (delete)="delete($event)"></app-card>
+</div>
+
+<form [formGroup]="form" (submit)="sendForm()">
+  <label
+  tuiLabel
+  label="Counrty">
+    <select id="country" formControlName="countryInput" (click)="setCounty()">
+      <option selected>{{this.lastForm.countryInput}}</option>
+      <option *ngFor="let p of countryService.data; let index">{{p.name}}</option>
+    </select>
+    <tui-field-error formControlName="countryInput"></tui-field-error>
+  </label>
+
+  <label
+  tuiLabel
+  label="City">
+    <tui-input formControlName="cityInput"
+    type="text"
+    >
+      Enter your city
+      <input tuiTextfield />
+    </tui-input>
+    <tui-field-error formControlName="cityInput"></tui-field-error>
+  </label>
+
+  <label
+  tuiLabel
+  label="Street">
+    <tui-input formControlName="streetInput"
+    type="text"
+    >
+      Enter your street
+      <input tuiTextfield />
+    </tui-input>
+    <tui-field-error formControlName="streetInput"></tui-field-error>
+  </label>
+
+  <label
+  tuiLabel
+  label="House">
+    <tui-input formControlName="houseInput"
+    type="number"
+    >
+      Enter your house
+      <input tuiTextfield />
+    </tui-input>
+    <tui-field-error formControlName="houseInput"></tui-field-error>
+  </label>
+
+  <label
+  tuiLabel
+  label="Name">
+    <tui-input formControlName="nameInput"
+      type="text"
+    >
+      Enter your name
+      <input tuiTextfield />
+    </tui-input>
+    <tui-field-error formControlName="nameInput"></tui-field-error>
+  </label>
+
+  <label
+  tuiLabel
+  label="Email">
+    <tui-input  formControlName="emailInput"
+    type="email"
+    >
+      Enter your email
+      <input tuiTextfield />
+    </tui-input>
+    <tui-field-error formControlName="emailInput"></tui-field-error>
+  </label>
+
+  <button
+    tuiButton
+    appearance="accent"
+    type="submit"
+  >
+  Save
+  </button>
+</form>

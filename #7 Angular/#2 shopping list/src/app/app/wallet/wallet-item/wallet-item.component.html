@@ -1,0 +1,35 @@
+<div class="item-container">
+  <div class="header-container" (click)="toggleOpen()">
+      <p>{{ purchase.title }}</p>
+      <tui-badge
+      status="success"
+      [value]="formattedPrice"
+      [hoverable]="true"
+      ></tui-badge>
+    </div>
+
+    <div *ngIf="isOpen" class="footer-container" >
+      <ng-container *ngIf="!isEdit">
+          <div class="header-footer">
+            <tui-badge
+            [hoverable]="true"
+            [value]="formattedDate"
+            >
+          </tui-badge>
+          <button
+          tuiButton
+          type="button"
+          size="s"
+          appearance="accent"
+          (click)="toggleEdit()">Ред.</button>
+        </div>
+        <p>{{ purchase.comment }}</p>
+      </ng-container>
+      <app-wallet-add *ngIf="isEdit"
+                      (add)="editPurch($event)"
+                      [isEdit]="true"
+                      [editPurchase]="purchase">
+                      Сохранить
+      </app-wallet-add>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<form class="form" [formGroup]="form" (submit)="submit()">
+  <div class="tui-form__row">
+    <tui-input tuiTextfieldSize="s" formControlName="nameInput">
+      Название
+    </tui-input>
+    <tui-field-error formControlName="nameInput"></tui-field-error>
+  </div>
+  <div class="tui-form__row">
+    <tui-input tuiTextfieldSize="s" formControlName="costInput" type="number">
+      Стоимость
+    </tui-input>
+    <tui-field-error formControlName="costInput"></tui-field-error>
+  </div>
+
+  <div class="tui-form__row">
+    <tui-input-date tuiTextfieldSize="m" formControlName="dateInput">
+      Дата
+    </tui-input-date>
+  </div>
+  <div class="tui-form__row">
+    <tui-text-area formControlName="commentInput" [(ngModel)]="commenText">
+      Комментарий
+    </tui-text-area>
+  </div>
+
+  <div class="tui-form__row buttons">
+    <button
+      [disabled]="form.invalid"
+      tuiButton
+      class="tui-form__button"
+      size="s"
+      type="submit"
+    >
+      <ng-content></ng-content>
+    </button>
+  </div>
+</form>

@@ -1,0 +1,35 @@
+<form [formGroup]="form" (submit)="isValidForm()">
+  <div class="tui-form__row">
+    <tui-input tuiTextfieldSize="s" formControlName="email" type="email" [(ngModel)]="email">
+      Почта
+    </tui-input>
+    <tui-field-error formControlName="email"></tui-field-error>
+  </div>
+  <div class="tui-form__row">
+    <tui-input-password tuiTextfieldSize="s" formControlName="firstPwd" [(ngModel)]="password">
+      Пароль
+    </tui-input-password>
+    <tui-field-error formControlName="firstPwd"></tui-field-error>
+  </div>
+  <div class="tui-form__row">
+    <tui-input-password tuiTextfieldSize="s" formControlName="secondPwd">
+      Повторите пароль
+    </tui-input-password>
+    <tui-field-error formControlName="secondPwd"></tui-field-error>
+    <tui-error [error]="error" *ngIf="form.errors?.['ans'] && form.get('secondPwd')?.touched && form.get('secondPwd')?.value"></tui-error>
+  </div>
+  <div class="tui-form__row">
+    <tui-checkbox-labeled formControlName="checkBox">Соглашусь со всеми условиями, не читая</tui-checkbox-labeled>
+    <tui-field-error formControlName="checkBox"></tui-field-error>
+  </div>
+  <div class="tui-form__row buttons">
+    <button
+      tuiButton
+      class="tui-form__button"
+      size="s"
+      type="submit"
+    >
+      Отправить
+    </button>
+  </div>
+</form>

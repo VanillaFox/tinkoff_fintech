@@ -1,0 +1,39 @@
+<div class="card">
+  <div class="name">
+    {{purchase.title}}
+  </div>
+  <div class="action-block">
+    <div class="cost">
+      ${{purchase.price}}
+    </div>
+    <form class="buttons" [formGroup]="form">
+      <tui-input-count *ngIf="isClick"
+        formControlName="countInput"
+        tuiTextfieldSize="s"
+        [min]="1"
+        (click)="edit()"
+        (change)="edit()"
+
+        >
+      </tui-input-count>
+      <button *ngIf="!isBasket && !isClick"
+        size="m"
+        tuiIconButton
+        appearance="accent"
+        icon="tuiIconPlus"
+        (click)="addPurchase()"
+
+        >
+      </button>
+      <button  *ngIf="isBasket"
+        size="m"
+        tuiIconButton
+        appearance="accent"
+        icon="tuiIconTrash"
+        type="button"
+        (click)="deletePurchase()"
+        >
+      </button>
+    </form>
+  </div>
+</div>

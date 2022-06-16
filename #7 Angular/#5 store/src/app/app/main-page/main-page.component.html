@@ -1,0 +1,8 @@
+<div class="card-list">
+  <app-card *ngFor="let p of purchasesList | async"
+            [purchase]="p"
+            [isBasket]="false"
+            (add)="add($event)"
+            ></app-card>
+</div>
+
