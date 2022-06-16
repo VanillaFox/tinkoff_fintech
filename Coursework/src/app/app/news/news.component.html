@@ -1,0 +1,7 @@
+<app-page-grid>
+  <div class="post-list">
+    <tui-loader [showLoader]="!(posts | async)"></tui-loader>
+    <app-post *ngFor="let post of posts | async" [post]="post">
+    </app-post>
+  </div>
+</app-page-grid>

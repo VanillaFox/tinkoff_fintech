@@ -1,0 +1,21 @@
+<app-page-grid>
+  <div class="team-tabs">
+    <div class="btn-team">
+      <a [routerLink]="['/followers', userId]" routerLinkActive="active">
+        <button class="team-tabs__item">Подписчики</button>
+      </a>
+      <button class="team-tabs__item pressed">Подписки</button>
+    </div>
+  </div>
+  <div class="search-team">
+    <div class="search-box">
+      <form class="search">
+        <input type="search" placeholder="Найти пользователя">
+      </form>
+    </div>
+    <div class="teams-list">
+      <tui-loader [showLoader]="!(users | async)"></tui-loader>
+      <app-user-card *ngFor="let user of users | async" [userData]="user"></app-user-card>
+    </div>
+  </div>
+</app-page-grid>

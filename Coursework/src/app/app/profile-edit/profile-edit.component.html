@@ -1,0 +1,61 @@
+<app-page-grid>
+  <div class="edit-box">
+    <div class="left-colomn">
+      <form class="form" [formGroup]="form">
+        <tui-input class="form__item" formControlName="name">
+          Имя
+          <input tuiTextfield type="text">
+        </tui-input>
+
+        <tui-input-tag class="form__item" formControlName="specialization">
+          Специализация
+          <tui-data-list-wrapper
+            *tuiDataList
+            [items]="specializations"
+          >
+          </tui-data-list-wrapper>
+        </tui-input-tag>
+
+        <tui-input-number postfix="лет" tuiTextfieldSize="m" class="form__item" formControlName="age">
+          Возраст
+          <input tuiTextfield >
+        </tui-input-number>
+
+        <tui-input class="form__item" formControlName="city">
+          Город
+          <input tuiTextfield type="text">
+        </tui-input>
+      </form>
+    </div>
+    <div class="right-colomn">
+      <form class="form" [formGroup]="form">
+        <tui-text-area class="form__item"  formControlName="about">
+          Обо мне
+        </tui-text-area>
+          <tui-input-tag class="form__item" formControlName="tools">
+            Инструменты
+            <tui-data-list-wrapper
+              *tuiDataList
+              [items]="tools"
+            >
+            </tui-data-list-wrapper>
+          </tui-input-tag>
+      </form>
+    </div>
+
+  </div>
+  <div class="btn-block">
+    <a [routerLink]="['/', login]"  routerLinkActive="active">
+      <button
+      tuiButton
+      type="button"
+      appearance="secondary"
+      size="m" >Отмена</button>
+    </a>
+    <button
+    tuiButton
+    type="button"
+    (click)="test()"
+    size="m">Сохранить</button>
+  </div>
+</app-page-grid>

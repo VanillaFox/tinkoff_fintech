@@ -1,0 +1,72 @@
+.bg {
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-size: cover;
+}
+
+:host{
+  display: flex;
+  height: 100%;
+  flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.authorization-box{
+  position: relative;
+  border-radius: 0.7rem;
+  background-color: white;
+  padding: 1rem;
+  text-align: center;
+  min-height: 30rem;
+  width: 25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-img{
+  height: 3.75rem;
+  width: 3.75rem;
+  margin-bottom: 0.5rem;
+}
+
+
+.enter-text{
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+
+
+.text-policy{
+  color: rgb(171, 171, 171);
+  width: 15.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.btn{
+  margin-bottom: 0.5rem;
+  width: 15.5rem;
+  height: 3rem;
+  border-radius: 3rem;
+  text-align: center;
+  &__enter{
+    color: rgb(37, 164, 255);
+    background: white;
+    border: 3px rgb(226, 152, 11) solid;
+  }
+  &__regist{
+    color: white;
+    background: rgba(37, 164, 255, 1);
+    border: 0;
+  }
+}

@@ -1,0 +1,39 @@
+<a [routerLink]="['/', (userLogin | async)?.login]" routerLinkActive="active">
+  <div class="profile-img">
+    <img src="../../../../assets/img/Sheldon.jpg">
+  </div>
+</a>
+
+<div class="post-body">
+  <div class="post-head date">
+    <div class="names">
+      <div class="name" *ngIf="(userLogin | async)?.name">{{(userLogin | async)?.name }}</div>
+      <div>@{{(userLogin | async)?.login }}</div>
+    </div>
+    <div class="right-side">
+      <div>
+        {{time | timeago}}
+      </div>
+      <button
+        *ngIf="isMyPost"
+        tuiButton
+        [tuiDropdown]="open"
+        [tuiDropdownContent]="actions"
+        type="button"
+        (click)="toggle()"
+        appearance="secondary"
+        size="s" >...</button>
+        <ng-template #actions>
+      <button
+        tuiButton
+        type="button"
+        (click)="delete()"
+        appearance="secondary"
+        size="s">Delete</button>
+      </ng-template>
+    </div>
+  </div>
+  <div class="post-text">
+    {{comment.text}}
+  </div>
+</div>

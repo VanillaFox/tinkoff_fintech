@@ -1,0 +1,36 @@
+<app-page-grid>
+  <div class="header-team">
+    <div class="avatar-team">
+      <img src="../../../assets/img/Sheldon.jpg">
+    </div>
+    <div class="name-team">
+      <div class="title">
+        {{(teamInfo | async)?.name}}
+      </div>
+    </div>
+    <div class="info-team">
+      <button tuiButton type="button"  appearance="primary" size="s">Настройки команды</button>
+      <p>42 подписчика</p>
+      <app-location-info>Moscow</app-location-info>
+    </div>
+  </div>
+  <div class="main-team">
+    <div>
+      <div class="teammates-block">Команда
+      <app-teammate-item></app-teammate-item>
+        <app-teammate-item></app-teammate-item>
+      </div>
+    </div>
+    <div class="info-block">
+      <div class="info-block__item team-main-info">
+        <div class="title-block">Информация группы</div>
+          Здесь будет основная информация о команде
+      </div>
+      <!-- <app-post></app-post>
+      <app-post></app-post>
+      <app-post></app-post> -->
+
+    </div>
+  </div>
+
+</app-page-grid>

@@ -1,0 +1,36 @@
+<img src="../../../assets/img/background.jpg" class="bg">
+
+<div class="authorization-box">
+  <img src="../../../../assets/img/logo.svg" alt="logo" class="logo-img">
+  <form class="form" [formGroup]="form" (submit)="reg()">
+    <tui-input class="form__item" formControlName="loginInput">
+      Введите логин
+      <input tuiTextfield type="text">
+    </tui-input>
+    <tui-field-error formControlName="loginInput" class="text"></tui-field-error>
+
+    <tui-input class="form__item"  formControlName="emailInput">
+      Введите свою почту
+      <input tuiTextfield type="email">
+    </tui-input>
+    <tui-field-error formControlName="emailInput" class="text"></tui-field-error>
+
+    <tui-input-password class="form__item"  formControlName="firstPwdInput">
+      Введите пароль
+      <input tuiTextfield>
+    </tui-input-password>
+    <tui-field-error formControlName="firstPwdInput" class="text"></tui-field-error>
+
+    <tui-input-password class="form__item" formControlName="secondPwdInput">
+      Повторите пароль
+      <input tuiTextfield>
+    </tui-input-password>
+    <tui-field-error formControlName="secondPwdInput" class="text"></tui-field-error>
+    <tui-error [error]="error" *ngIf="form.errors?.['isSamePwd'] && form.get('secondPwdInput')?.touched && form.get('secondPwdInput')?.value" class="text"></tui-error>
+    <button
+    tuiButton
+    type="submit"
+    size="m">Зарегистрироваться</button>
+  </form>
+
+</div>

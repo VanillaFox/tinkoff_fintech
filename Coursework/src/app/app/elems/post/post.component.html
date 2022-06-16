@@ -1,0 +1,62 @@
+<a [routerLink]="['/', (userLogin | async)?.login]" routerLinkActive="active">
+  <div class="profile-img">
+    <img src="../../../../assets/img/Sheldon.jpg">
+  </div>
+</a>
+
+<div class="post-body">
+  <div class="post-head date">
+    <a [routerLink]="['/', (userLogin | async)?.login]" routerLinkActive="active" class="names">
+        <div class="name" *ngIf="(userLogin | async)?.name">{{(userLogin | async)?.name }}</div>
+        <div class="login">@{{(userLogin | async)?.login }}</div>
+    </a>
+    <div class="right-side">
+      <div>
+        {{time | timeago}}
+      </div>
+      <button
+        *ngIf="isMyPost"
+        tuiButton
+        [tuiDropdown]="open"
+        [tuiDropdownContent]="actions"
+        type="button"
+        (click)="toggle()"
+        appearance="secondary"
+        size="s" >...</button>
+        <ng-template #actions>
+          <button
+          tuiButton
+          type="button"
+          (click)="delete()"
+          appearance="secondary"
+          size="s">Delete</button>
+      </ng-template>
+    </div>
+  </div>
+  <div class="post-text">
+    {{post.text}}
+  </div>
+  <div class="actions-block">
+    <img src="./../../../../assets/img/icons/like-icon.svg" class="icon" alt="like-icon">
+    <button class="icon-btn" type="button" (click)="openComments()">
+      <img src="./../../../../assets/img/icons/comment-icon.svg" class="icon" alt="comment-icon">
+      <div class="text" *ngIf="(comments | async)?.length">
+        {{(comments | async)?.length}}
+      </div>
+    </button>
+    <img src="./../../../../assets/img/icons/repost-icon.svg" class="icon" alt="repost-icon">
+  </div>
+  <div *ngIf="openFlagComments">
+    <tui-loader [showLoader]="!(comments | async)"></tui-loader>
+    <app-comment *ngFor="let comment of comments | async" [comment]="comment"></app-comment>
+    <form [formGroup]="form" (submit)="sendComment()">
+      <tui-text-area  formControlName="comment">Комментарий</tui-text-area>
+      <button
+      tuiIconButton
+      icon="tuiIconBackCircleLarge"
+      type="submit"
+      appearance="primary"
+      size="m"></button>
+    </form>
+  </div>
+</div>

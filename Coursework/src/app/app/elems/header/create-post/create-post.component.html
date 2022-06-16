@@ -1,0 +1,23 @@
+<div class="registration-box">
+  <p class="title">Создание поста</p>
+  <form class="form" [formGroup]="form" (submit)="createPost()">
+    <tui-text-area class="form__item" formControlName="postText">
+      Текст поста
+    </tui-text-area>
+  <tui-field-error formControlName="postText"></tui-field-error>
+
+    <div class="btn-block">
+      <button
+      tuiButton
+      type="button"
+      appearance="secondary"
+      (click)="cancel()"
+      size="m">Отмена</button>
+      <button
+      tuiButton
+      type="submit"
+      appearance="primary"
+      size="m">Опубликовать пост</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,39 @@
+.edit-box{
+  display: flex;
+}
+
+:host{
+  flex: 1 1 auto;
+}
+
+.left-colomn, .right-colomn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: white;
+  padding: 3rem;
+}
+
+.left-colomn + .right-colomn{
+  margin-left: 1rem;
+}
+
+.left-colomn{
+  flex: 1 1 auto;
+}
+
+.right-colomn{
+  flex: 2 1 auto;
+}
+
+.form{
+  width: 100%;
+  &__item{
+    margin-bottom: 0.5rem;
+  }
+}
+
+button + button{
+  margin-left: 1rem;
+}

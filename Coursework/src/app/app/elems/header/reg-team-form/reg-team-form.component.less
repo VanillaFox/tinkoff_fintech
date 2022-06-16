@@ -1,0 +1,48 @@
+:host{
+  z-index: 100;
+}
+
+:host::before{
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,.5);
+}
+
+
+.registration-box{
+  position: fixed;
+  display: block;
+  top: 10rem;
+  left: 25%;
+  right: 25%;
+  background-color: white;
+  padding: 3rem;
+  text-align: center;
+  min-width: 28rem;
+}
+
+.btn-block{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__item{
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.title{
+  font-weight: 700;
+  font-size: 2rem;
+}

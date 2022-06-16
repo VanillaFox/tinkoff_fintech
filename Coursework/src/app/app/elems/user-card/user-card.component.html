@@ -1,0 +1,12 @@
+<a [routerLink]="['/'+ userData?.login]" routerLinkActive="active" class="profile-img">
+  <img src="../../../../assets/img/Sheldon.jpg">
+</a>
+<a [routerLink]="['/'+ userData?.login]" routerLinkActive="active" class="user-names">
+  <div class="name">{{userData.name}}</div>
+  <div class="nickname">@{{userData.login}}</div>
+</a>
+
+<div class="team-info">
+  <button tuiButton appearance="primary" class="sub-btn" *ngIf="!isFollowing" (click)="followAction()">Подписаться</button>
+  <button tuiButton appearance="secondary" class="sub-btn" *ngIf="isFollowing" (click)="followAction()">Отписаться</button>
+</div>

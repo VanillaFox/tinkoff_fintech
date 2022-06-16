@@ -1,0 +1,23 @@
+<img src="../../../assets/img/background.jpg" class="bg">
+
+<div class="authorization-box">
+  <img src="../../../../assets/img/logo.svg" alt="logo" class="logo-img">
+  <form [formGroup]="form" class="form" (submit)="enter()">
+    <tui-input class="form__item" formControlName="loginInput">
+      Почта
+      <input tuiTextfield type="email">
+    </tui-input>
+    <tui-field-error formControlName="loginInput"></tui-field-error>
+    <tui-input-password class="form__item"  formControlName="passwordInput">
+      Пароль
+      <input tuiTextfield>
+    </tui-input-password>
+    <tui-field-error formControlName="passwordInput"></tui-field-error>
+    <button
+    tuiButton
+    type="submit"
+    size="m">Войти</button>
+    <tui-error [error]="error" *ngIf="wrongEnter" class="text"></tui-error>
+  </form>
+
+</div>

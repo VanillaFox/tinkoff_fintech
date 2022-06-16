@@ -1,0 +1,34 @@
+<div class="registration-box">
+  <p class="title">Создание команды</p>
+  <form class="form" [formGroup]="form" (submit)="createTeam()">
+    <tui-input class="form__item" formControlName="name">
+      Название команды
+      <input tuiTextfield type="text">
+    </tui-input>
+  <tui-field-error formControlName="name"></tui-field-error>
+
+    <tui-input class="form__item" formControlName="city">
+      Город
+      <input tuiTextfield type="text">
+    </tui-input>
+
+    <tui-input class="form__item" formControlName="website">
+      Сайт
+      <input tuiTextfield type="text">
+    </tui-input>
+
+    <div class="btn-block">
+      <button
+      tuiButton
+      type="submit"
+      appearance="primary"
+      size="m">Создать команду</button>
+      <button
+      tuiButton
+      type="button"
+      appearance="secondary"
+      (click)="cancel()"
+      size="m">Отмена</button>
+    </div>
+  </form>
+</div>

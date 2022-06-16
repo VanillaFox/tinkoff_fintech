@@ -1,0 +1,28 @@
+<a [routerLink]="['/'+ (userLogin | async)?.login]" routerLinkActive="active" class="nov-item">
+  <img src="../../../../assets/img/icons/profile-icon.svg">
+  <p>Профиль</p>
+</a>
+
+<a routerLink="/news" routerLinkActive="active" class="nov-item">
+  <img src="../../../../assets/img/icons/news-icon.svg">
+  <p>Лента</p>
+</a>
+
+<div class="nov-item">
+  <img src="../../../../assets/img/icons/chats-icon.svg">
+  <p>Сообщения</p>
+</div>
+
+<a routerLink="/commands" routerLinkActive="active" class="nov-item">
+  <img src="../../../../assets/img/icons/teams-icon.svg">
+  <p>Команды</p>
+</a>
+
+<a routerLink="/subscriptions" routerLinkActive="active" class="nov-item">
+    <img src="../../../../assets/img/icons/subs-icon.svg">
+    <p>Пользователи</p>
+</a>
+<a routerLink="/edit" routerLinkActive="active" class="nov-item">
+  <img src="../../../../assets/img/icons/settings-icon.svg">
+  <p>Настройки</p>
+</a>

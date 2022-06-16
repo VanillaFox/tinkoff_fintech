@@ -1,0 +1,45 @@
+:host{
+  height: 6rem;
+  padding: 1rem 8%;
+  display: flex;
+  background-color: white;
+}
+
+.team-avatar{
+  flex: none;
+  width: 6rem;
+  margin-right: 2rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  .team-img{
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.team-info{
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: space-between;
+  &__footer{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+
+.team-name{
+  font-size: 1.5rem;
+  font-weight: 700;
+  word-break: break-all;
+}
+
+.sub-btn{
+  background-color: rgb(37, 164, 255);
+  color: white;
+  height: 2rem;
+  border: none;
+  width: 10rem;
+  border-radius: 0.5rem;
+}

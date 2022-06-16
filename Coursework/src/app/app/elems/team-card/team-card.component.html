@@ -1,0 +1,14 @@
+<a [routerLink]="['/team', team.id]" routerLinkActive="active" class="team-avatar">
+  <img src="../../../../assets/img/Sheldon.jpg" class="team-img" alt="team-avatar">
+</a>
+<div class="team-info">
+  <div class="team-name">
+    {{team.name}}
+  </div>
+  <div class="team-info__footer">
+    <button class="sub-btn">Подписаться</button>
+    <app-location-info *ngIf="team.city">
+      {{team.city}}
+    </app-location-info>
+  </div>
+</div>

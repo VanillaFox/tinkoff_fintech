@@ -1,0 +1,25 @@
+<app-create-post *ngIf="service.openFlag$ | async"
+                (cancelAction)="close()"
+                (createPostAction)="create($event)"
+></app-create-post>
+<app-reg-team-form *ngIf="service.createTeamFlag$ | async"></app-reg-team-form>
+<div class="header-content">
+  <img src="../../../../assets/img/teamcode.svg" alt="TC-logo" class="img-logo">
+  <p *ngIf="!(service.loginFlag$ | async)">Switch to English</p>
+  <div *ngIf="(service.loginFlag$ | async)" class="right-side">
+    <button tuiIconButton
+        type="button"
+        size="s"
+        icon="tuiIconLogoutLarge"
+        (click)="logout()"
+    ></button>
+    <button tuiButton
+        type="button"
+        appearance="accent"
+        size="s"
+        (click)="open()">Создать пост</button>
+    <a [routerLink]="['/'+ login]" routerLinkActive="active"v class="avatar">
+      <img src="../../../../assets/img/Sheldon.jpg" alt="avatar" class="img-in-block">
+    </a>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<app-page-grid>
+  <div class="profile-bg">
+    <img src="../../../assets/img/profileBG.jpg" class="img-in-block" alt="avatar">
+  </div>
+  <div class="profile-avatar">
+    <div class="img-div">
+      <img src="../../../assets/img/Sheldon.jpg">
+    </div>
+  </div>
+
+  <div class="info-block">
+    <div class="left-block">
+      <div class="base-info">
+        <div class="base-info-content">
+          <div *ngIf="(user | async)?.name" class="base-info-content__item title">
+            {{(user | async)?.name}}
+          </div>
+          <div class="base-info-content__item text grey-text">
+            @{{(user | async)?.login}}
+          </div>
+          <div class="base-info-content__item specialization blue-text" *ngIf="(user | async)?.specialization">{{(user | async)?.specialization}}</div>
+          <div class="double-block blue-text wrap-elems">
+            <div class="base-info-content__item" *ngIf="(user | async)?.age">{{(user | async)?.age}} года</div>
+            <app-location-info *ngIf="(user | async)?.city" class="base-info-content__item">
+              {{(user | async)?.city}}
+            </app-location-info>
+          </div>
+          <div>
+            <a *ngIf="(user | async)?.login===myLogin"  routerLink="/edit" routerLinkActive="active">
+              <button class="base-info-content__item edit-btn">Редактировать</button>
+            </a>
+          </div>
+          <button *ngIf="(user | async)?.login!==myLogin && !isFollowingFlag" class="base-info-content__item sub-btn" (click)="sub()">Подписаться</button>
+          <button *ngIf="(user | async)?.login!==myLogin && isFollowingFlag" class="base-info-content__item unsub-btn" (click)="sub()">Отписаться</button>
+
+          <div class="double-block">
+            <a [routerLink]="['/followers', userId]" routerLinkActive="active" class="base-info-content__item">{{followersCount | async}} followers</a>
+            <a  [routerLink]="['/following', userId]" routerLinkActive="active"class="base-info-content__item">{{followingCount | async}} following</a>
+          </div>
+          <div class="double-block">
+            <img src="../../../assets/img/icons/telegram-icon.svg" class="base-info-content__item contact-img" alt="contact img">
+            <img src="../../../assets/img/icons/mail-icon.svg" class="base-info-content__item contact-img" alt="contact img">
+            <img src="../../../assets/img/icons/skype-icon.svg" class="base-info-content__item contact-img" alt="contact img">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="right-block">
+      <div class="content-info">
+        <div class="content-info__item">
+          <div class="title">Обо мне</div>
+          <div class="text">
+            {{(user | async)?.about}}
+          </div>
+        </div>
+        <div class="content-info__item">
+          <div class="title">Языки и инструменты</div>
+          <div class="tools-lngs wrap-elems">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" class="tools-lngs__item" alt="lng-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="tools-lngs__item" alt="lng-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/latex/latex-original.svg" class="tools-lngs__item" alt="lng-icon">
+          </div>
+        </div>
+      </div>
+      <tui-loader [showLoader]="!(userPosts | async)"></tui-loader>
+      <app-post *ngFor="let post of userPosts | async" [post]="post"></app-post>
+    </div>
+
+  </div>
+</app-page-grid>

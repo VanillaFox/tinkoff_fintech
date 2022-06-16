@@ -1,0 +1,25 @@
+<app-page-grid>
+  <div class="team-tabs">
+    <div class="btn-team">
+      <button class="team-tabs__item pressed">Все</button>
+      <button class="team-tabs__item">Мои</button>
+    </div>
+    <button class="team-tabs__item create-btn"
+            (click)="changeCreateTeamFlag()"
+    >Создать команду</button>
+  </div>
+  <div class="search-team">
+    <div class="search-box">
+      <form class="search">
+        <input type="search" placeholder="Найти команду">
+      </form>
+    </div>
+    <div class="teams-list">
+      <tui-loader [showLoader]="!(teamCards | async)"></tui-loader>
+      <app-team-card *ngFor="let p of teamCards | async"
+                      [team]="p"
+      >
+      </app-team-card>
+    </div>
+  </div>
+</app-page-grid>
